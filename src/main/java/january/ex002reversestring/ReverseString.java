@@ -6,19 +6,21 @@ public class ReverseString {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String wordToReverse = scanner.nextLine();
-        String[] words = wordToReverse.split(" ");
+        System.out.println("Enter initial sentence");
+        String sentence = scanner.nextLine();
+
+        String[] words = sentence.split(" ");
+
         StringBuilder sb;
+        StringBuilder newSentence = new StringBuilder();
+
         for (int i = 0; i < words.length; i++) {
             sb = new StringBuilder(words[i]);
-            words[i] = sb.reverse().toString();
+            newSentence.append(sb.reverse());
+            newSentence.append(" ");
         }
-        System.out.println();
 
-        char[] letters = wordToReverse.toCharArray();
-
-        for (int i = letters.length - 1; i >= 0; i--) {
-            System.out.print(letters[i]);
-        }
+        System.out.println("Old sentence: " + sentence);
+        System.out.println("New Sentence: " + newSentence.toString().trim());
     }
 }
